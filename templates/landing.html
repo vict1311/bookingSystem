@@ -2,4 +2,27 @@
 
 {% block body %}
     <h1>Welcome</h1>
+
+    <button type="button" onclick="openForm()">Open</button>
+
+    <div class="modal-sm" id="myForm" style="display: none; margin: auto;">
+        <div class="modal-content">
+        <form action="/action_page.php">
+            <p>ITEM</p>
+            <label for="fullName">Full name:</label><br>
+            <input type="text" id="fullName" name="fullName" value="Emmelie"><br>
+            <label for="startDate">Start date:</label><br>
+            <input type="text" id="startDate" name="startDate" value="19-11-2021"><br><br>
+            <label for="endDate">End date:</label><br>
+            <input type="text" id="endDate" name="endDate" value="20-11-2021"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" value="email@email.email"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+        <div class="modal-footer">
+            <button type="button" onclick="closeForm()">Close</button>
+        </div>
+        </div>
+    </div>
+
 {% endblock %}
