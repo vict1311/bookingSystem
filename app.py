@@ -24,7 +24,7 @@ bookingList = [booking1, booking2, booking3]
 #when a booking is created the booking is added to bookingList with .append(), so bookingList.append(NameOfBooking)
 #when we append this later, we just use .append(Booking(variableFromPopup1, variableFromPopup2, etc.))
 
-@app.route("/") #submission logic here for now: will be moved to catalogue later
+@app.route("/") 
 def landing():
         return render_template("landing.html")
 
@@ -33,15 +33,20 @@ def contact():
     return render_template("contact.html")    
 
 @app.route("/catalogue", methods=["GET", "POST"])
+# we use both GET and POST methods, since POST isnt default
 def catalogue():
     if request.method == "GET": 
         return render_template("catalogue.html")
+        #if the user requests to GET data we show them our page
     else:
+        #if the user requests to POST data we take info from our HTML form and save it as variables
         itemName = request.form.get("itemName")
         fullName = request.form.get("fullName")
         startDate = request.form.get("startDate")
         endDate = request.form.get("endDate")
         email = request.form.get("email")
+        
+        # we append our mock-up database
         bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
         return redirect("/catalogue")
 
