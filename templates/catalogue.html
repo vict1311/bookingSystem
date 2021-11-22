@@ -2,14 +2,15 @@
 
 {% block body %}
 
-<div class="row">
+
+<div class="row"">
   <div class="col-sm-4 d-flex align-items-stretch">
     <div class="card border-success mb-3">
         <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="card-img-top" alt="drill">
         <h5 class="card-header bg-success mb-3 text-white">Drill</h5>
         <div class="card-body text-success">
           <p class="card-text">2 x 1,5 Ah 18V XR Li-Ion drill.</p>
-          <a href="#" class="btn btn-success">Book Now</a>
+          <button type="button" class="btn btn-success" id="drill" onclick="drill()">Book Now</button>
         </div>
     </div> 
   </div>
@@ -19,7 +20,7 @@
         <h5 class="card-header bg-success mb-3 text-white">Ladder</h5>
         <div class="card-body text-success">
           <p class="card-text">Fiberglass Double Step Ladder. Supports 300lbs.</p>
-          <a href="#" class="btn btn-success">Book Now</a>
+          <button type="button" class="btn btn-success" id="ladder" onclick="ladder()">Book Now</button>
         </div>
     </div> 
   </div>
@@ -29,11 +30,35 @@
         <h5 class="card-header bg-success mb-3 text-white">Folding Chair</h5>
         <div class="card-body text-success">
           <p class="card-text">12 folding chairs avaliable for booking.</p>
-          <a href="#" class="btn btn-success">Book Now</a>
+          <button type="button" class="btn btn-success" id="chairs" onclick="chairs()">Book Now</button>
         </div>
     </div> 
   </div>
-</div>    
+</div>
+
+<div class="modal-sm" id="myForm" style="display: none;">
+  <div class="modal-content" style = "position: fixed; width: 300px; top: 32.5%; margin-left: 40%; ">
+  <!-- our form action (where to send form data) is for this file, and we use the post method to ask the server to book an item -->
+  <form action="/catalogue" method="post">
+      <h3 id="nameOfItem"></h3>
+      <input type="hidden" id="itemName" name="itemName" value="">
+      <label for="fullName">Full name:</label><br>
+      <input type="text" id="fullName" name="fullName" placeholder="Full name"><br>
+      <label for="startDate">Start date:</label><br>
+      <input type="text" id="startDate" name="startDate" placeholder="DD-MM-YYYY"><br><br>
+      <label for="endDate">End date:</label><br>
+      <input type="text" id="endDate" name="endDate" placeholder="DD-MM-YYYY"><br><br>
+      <label for="email">Email:</label><br>
+      <input type="text" id="email" name="email" placeholder="email@email.email"><br><br>
+      <input type="submit" class="btn btn-success" value="Submit">
+      <button type="button" class="btn btn-secondary" onclick="closeForm()">Close</button>
+      <p> </p>
+  </form>
+  </div>
+  
+</div>
+
+
 {% endblock %}
 
 <!--div style="height: 400px; width: 300px;"></div-->

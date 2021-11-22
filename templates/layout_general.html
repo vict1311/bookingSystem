@@ -11,10 +11,15 @@
             height: 37vw;
             object-fit: cover;
           }
+
+          body {
+            backdrop-filter: blur(5px);
+          }
       </style>
 
-      <script type=text/javascript src="{{ url_for('static', filename='bookingScripts.js') }}"></script>
-    
+ <script type=text/javascript src="{{ url_for('static', filename='bookingScripts.js') }}"></script>
+    <!-- WE ADD OUR JAVASCRIPTFILE HERE - DO NOT DELETE!!!! -->
+      
     </head>
     <body style="text-align: center;">
         <div style="height: 100px;"> <!--We make a div for our image - making it possible to control height/width-->
