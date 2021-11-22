@@ -2,6 +2,11 @@
 
 {% block body %}
     <h1>Bookings</h1>
+
+    {% for booking in bookingList %} 
+        <li>The {{ booking.itemName }} is booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</li>
+    {% endfor %}
+
 {% endblock %}
 
 
