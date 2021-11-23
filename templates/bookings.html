@@ -14,7 +14,7 @@
             <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
-            <div class="card-body">
+            <div class="card-body scroll">
               {% 
                 for booking in bookingList
                     if booking.itemName == "Drill"
@@ -33,7 +33,7 @@
             <img src="https://homedepot.scene7.com/is/image/homedepotcanada/p_1000165414.jpg?wid=1000&hei=1000&op_sharpen=1" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
-            <div class="card-body">
+            <div class="card-body scroll">
               {% 
                 for booking in bookingList
                     if booking.itemName == "Ladder"
@@ -52,7 +52,7 @@
             <img src="https://medieserver.jemogfix.dk/fotoweb/dk/varer/700/2125%209036098.jpg" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
-            <div class="card-body">
+            <div class="card-body scroll">
               {% 
                 for booking in bookingList
                     if booking.itemName == "Chairs"
@@ -62,6 +62,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
 
 {% endblock %}
