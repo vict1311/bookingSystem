@@ -19,7 +19,7 @@
                 for booking in bookingList
                     if booking.itemName == "Drill"
             %} 
-                <p class="card-text"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
             {% endfor %}
             </div>
           </div>
@@ -38,7 +38,7 @@
                 for booking in bookingList
                     if booking.itemName == "Ladder"
             %} 
-                <p class="card-text"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
             {% endfor %}
             </div>
           </div>
@@ -57,7 +57,7 @@
                 for booking in bookingList
                     if booking.itemName == "Chairs"
             %} 
-                <p class="card-text"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking.personName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
             {% endfor %}
             </div>
           </div>
