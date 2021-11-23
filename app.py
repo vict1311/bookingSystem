@@ -17,9 +17,9 @@ class Booking:
 
 
 # hardcode bookings using our Booking class
-booking1 = Booking("Drill", "Victor Jensen", "19-11-2021", "20-11-2021", "villerdk@hotmail.com")
-booking2 = Booking("Ladder", "Trine Andersen", "19-11-2021", "23-11-2021", "tandersen@example.com")
-booking3 = Booking("Chairs", "Emil Bo", "19-12-2021", "30-12-2021", "e18bo@example.com")
+booking1 = Booking("Drill", "Victor Jensen", "2021-11-19", "2021-11-20", "villerdk@hotmail.com")
+booking2 = Booking("Ladder", "Trine Andersen", "2021-11-19", "2021-11-23", "tandersen@example.com")
+booking3 = Booking("Chairs", "Emil Bo", "2021-12-19", "2021-12-30", "e18bo@example.com")
 
 bookingList = [booking1, booking2, booking3]
 #when a booking is created the booking is added to bookingList with .append(), so bookingList.append(NameOfBooking)

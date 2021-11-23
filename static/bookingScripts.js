@@ -29,3 +29,28 @@ function openForm() {
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
+
+// function to check if fields are filled out
+  document.querySelector("#email").onkeyup = function() {
+    // we add an event listener on the email field for the users key going up
+    if (document.querySelector("#fullName").value === '') {
+    // if fullName is empty disable submit
+        document.querySelector("#submit").disabled = true;
+    }
+    else if (document.querySelector("#startDate").value === '') {
+    // if startDate is empty disable submit
+          document.querySelector("#submit").disabled = true;
+    }
+    else if (document.querySelector("#endDate").value === '') {
+    // if endDate is empty disable submit
+      document.querySelector("#submit").disabled = true;
+    }
+    else if (document.querySelector("#email").value === '') {
+    // if email is empty disable submit
+      document.querySelector("#submit").disabled = true;
+    }
+    else {
+    // if none of the above are empty then enable submit
+        document.querySelector("#submit").disabled = false;
+    }
+  } 
