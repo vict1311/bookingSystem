@@ -1,16 +1,20 @@
-{% extends "layout_general.html" %}
+{% extends "layout_bookings.html" %}
 
 {% block body %}
     <h1>Bookings</h1>
-
-    <div class="card mb-3" style="max-width: 1200px;">
+    <br>
+    <div class="container" style="width: 900px;">
+    <h6>On this page, you will get an overview of existing bookings. Furthermore, you will be able to cancel exsisting bookings you have created. If you have any issues, contact us by filling out the form in "Contact".</h6>
+    </div>
+    <br>
+    <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+      <h5 class="card-header bg-success mb-3 text-white">Drill</h5>
         <div class="row g-0">
           <div class="col-md-4">
             <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Drill</h5>
               {% 
                 for booking in bookingList
                     if booking.itemName == "Drill"
@@ -22,14 +26,14 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 1200px;">
+      <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+        <h5 class="card-header bg-success mb-3 text-white">Ladder</h5>
         <div class="row g-0">
           <div class="col-md-4">
             <img src="https://homedepot.scene7.com/is/image/homedepotcanada/p_1000165414.jpg?wid=1000&hei=1000&op_sharpen=1" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Ladder</h5>
               {% 
                 for booking in bookingList
                     if booking.itemName == "Ladder"
@@ -41,14 +45,14 @@
         </div>
       </div>
 
-      <div class="card mb-3" style="max-width: 1200px;">
+      <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+        <h5 class="card-header bg-success mb-3 text-white">Chairs</h5>
         <div class="row g-0">
           <div class="col-md-4">
             <img src="https://medieserver.jemogfix.dk/fotoweb/dk/varer/700/2125%209036098.jpg" class="img-fluid rounded-start" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Chairs</h5>
               {% 
                 for booking in bookingList
                     if booking.itemName == "Chairs"
