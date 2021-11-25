@@ -1,10 +1,29 @@
 {% extends "layout_general.html" %}
 
 {% block body %}
-    <h1>Welcome</h1>
 
-    
-    
-    
+<style>
+ol.center-list{
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-position: inside;
+}
+</style>
+
+    <h1>Welcome</h1>
+<br>
+<br>
+<div>
+    <h3 class="text-success">General Rules</h3>
+    <br>
+    <ol = class="center-list">
+        <li>All residents of The Dorm are allowed to borrow items.</li>
+        <li>All items must be booked through this page. Borrowing items without registration is prohibited.</li>
+        <li>Items must be returned in due time.</li>
+        <li>Return items in the same or better condition than when borrowed.</li>
+        <li>Please inform management right away if an item is broken or damaged.</li>
+    </ol>
+</div>    
 
 {% endblock %}
