@@ -38,9 +38,9 @@ def contact():
 def catalogue():
     if request.method == "GET": 
         return render_template("catalogue.html")
-        #if the user requests to GET data we show them our page
+        #if the user requests to GET data (get data from resource) we show them our page
     else:
-        #if the user requests to POST data we take info from our HTML form and save it as variables
+        #if the user requests to POST data (send data to resource) we take info from our HTML form and save it as variables
         itemName = request.form.get("itemName")
         fullName = request.form.get("fullName")
         startDate = request.form.get("startDate")

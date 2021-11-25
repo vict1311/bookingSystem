@@ -32,7 +32,7 @@ function openForm() {
 
 // function to check if fields are filled out
   document.querySelector("#email").onkeyup = function() {
-    // we add an event listener on the email field for the users key going up
+    // we add an event listener (querySelector; returns first element matching criteria, here ID of "email") on the email field for the users key going up
     if (document.querySelector("#fullName").value === '') {
     // if fullName is empty disable submit
         document.querySelector("#submit").disabled = true;
