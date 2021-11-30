@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request
-
+from cs50 import SQL
 
 # we use url_for to get urls for every html page we route to. this takes the name of an html file and 
 # gives us a url for this
 
 app = Flask(__name__)
+db = SQL('sqlite:///database/bookings.db')
 
 # create Booking class that we can load instances of
 class Booking:
@@ -17,17 +18,20 @@ class Booking:
 
 
 # hardcode bookings using our Booking class
-booking1 = Booking("Drill", "Victor Jensen", "2021-11-19", "2021-11-20", "villerdk@hotmail.com")
-booking2 = Booking("Ladder", "Trine Andersen", "2021-11-19", "2021-11-23", "tandersen@example.com")
-booking3 = Booking("Chairs", "Emil Bo", "2021-12-19", "2021-12-30", "e18bo@example.com")
+# booking1 = db.execute('SELECT * FROM bookings WHERE id=1')
+# Booking("Drill", "Victor Jensen", "2021-11-19", "2021-11-20", "villerdk@hotmail.com")
+# booking2 = db.execute('SELECT * FROM bookings WHERE id=2')
+# Booking("Ladder", "Trine Andersen", "2021-11-19", "2021-11-23", "tandersen@example.com")
+# booking3 = db.execute('SELECT * FROM bookings WHERE id=3')
+# Booking("Chairs", "Emil Bo", "2021-12-19", "2021-12-30", "e18bo@example.com")
 
-bookingList = [booking1, booking2, booking3]
+
 #when a booking is created the booking is added to bookingList with .append(), so bookingList.append(NameOfBooking)
 #when we append this later, we just use .append(Booking(variableFromPopup1, variableFromPopup2, etc.))
 
 @app.route("/") 
 def landing():
-        return render_template("landing.html")
+    return render_template("landing.html")
 
 @app.route("/contact")
 def contact():
@@ -47,31 +51,31 @@ def catalogue():
         endDate = request.form.get("endDate")
         email = request.form.get("email")
         
+        db.execute('INSERT INTO bookings (itemName, fullName, startDate, endDate, email) VALUES (:itemName, :fullName, :startDate, :endDate, :email)', itemName=itemName, fullName=fullName, startDate=startDate, endDate=endDate, email=email )
+        bookingid = db.execute('SELECT id FROM bookings WHERE itemName=? AND fullName=? AND startDate=? AND endDate=? AND email=?', itemName, fullName, startDate, endDate, email)
         # we append our mock-up database
-        bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
+        # bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
         return redirect("/catalogue")
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():
+    bookingList = db.execute('SELECT * FROM bookings')
     if request.method == "GET": 
         return render_template("bookings.html", bookingList = bookingList)
         #if the user requests to GET data (get data from resource) we show them our page
     else:
         #if the user requests to POST data (send data to resource) we take info from our HTML form and save it as variables
-        itemName = request.form.get("itemName")
-        fullName = request.form.get("fullName")
-        startDate = request.form.get("startDate")
-        endDate = request.form.get("endDate")
-        email = request.form.get("email")
-        
+        bookingid = request.form.get("bookingid")
         # we remove from our mock database by going through every entry in the bookingList
-        for i in bookingList:
-            # we compare every attribute of the i'th object with the value in the submitted form
-            if i.itemName == itemName and i.fullName == fullName and i.startDate == startDate and i.endDate == endDate and i.email == email:
-                # if the above are true, we remove() the entry from the list
-                bookingList.remove(i)
-            #else:
-                # if the entry does not work we show
-             #   return redirect("/contact")
-
+        db.execute('DELETE FROM bookings WHERE id=?', bookingid)
+           
         return redirect("/bookings")
+
+
+@app.route("/failure")
+def failure():
+    return render_template("failure.html")
+
+@app.route("/confirmation")
+def confirmation():
+    return render_template("confirmation.html")    

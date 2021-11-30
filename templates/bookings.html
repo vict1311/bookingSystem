@@ -4,7 +4,7 @@
     <h1>Bookings</h1>
     <br>
     <div class="container" style="width: 900px;">
-    <h6>On this page, you will get an overview of existing bookings. Furthermore, you will be able to cancel exsisting bookings you have created. If you have any issues, contact us by filling out the form in "Contact".</h6>
+    <h6>On this page, you will get an overview of existing bookings. Furthermore, you will be able to cancel exsisting bookings you have created. If you have any issues, you can find our contact information under "Contact".</h6>
     </div>
 
     <br>
@@ -62,7 +62,7 @@
                 for booking in bookingList
                     if booking.itemName == "Chairs"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking.fullName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}. id: {{ bookingid }}</p>
             {% endfor %}
             </div>
           </div>
@@ -76,24 +76,10 @@
         <form action="/bookings" method="post" id="deleteBooking">
             <h3 id="nameOfItem">DELETE BOOKING:</h3>
 
-            <input type="radio" id="drillDelete" name="itemName" value="Drill">
-            <label for="drillDelete">Drill</label><br>
-            <input type="radio" id="ladderDelete" name="itemName" value="Ladder">
-            <label for="ladderDelete">Ladder</label><br>
-            <input type="radio" id="chairsDelete" name="itemName" value="Chairs">
-            <label for="chairsDelete">Chairs</label>
-            <br>
-            <label for="fullName">Full name:</label><br>
-            <input type="text" id="fullName" name="fullName" placeholder="Full name"><br>
-            <label for="startDate">Start date:</label><br>
-            <input type="date" id="startDate" name="startDate" placeholder="DD-MM-YYYY"><br><br>
-            <label for="endDate">End date:</label><br>
-            <input type="date" id="endDate" name="endDate" placeholder="DD-MM-YYYY"><br><br>
-            <!-- we use the type "date" to let users pick a date -->
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="email@email.email"><br><br>
-            <!-- We use type="email" to enable verifying the user has typed an email -->
-            <input type="submit" id="submit" class="btn btn-success" value="Submit" disabled>
+            <label for="bookingid">Booking ID:</label><br>
+            <input type="text" id="bookingid" name="bookingid" placeholder="Booking ID" >
+            <br><br>
+            <input type="submit" id="submit" class="btn btn-danger" value="Submit" disabled>
             <button type="button" class="btn btn-secondary" onclick="closeForm()">Close</button>
             <p> </p>
         </form>
