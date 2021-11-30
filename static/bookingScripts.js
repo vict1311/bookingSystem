@@ -30,6 +30,16 @@ function openForm() {
     document.getElementById("myForm").style.display = "none";
   }
 
+  document.querySelector("#bookingid").onkeyup = function() {
+    if (document.querySelector("#bookingid").value === '') {
+      document.querySelector("#submit").disabled = true;
+    }
+    else {
+      document.querySelector("#submit").disabled = false;
+    }
+
+  }
+
 // function to check if fields are filled out
   document.querySelector("#email").onkeyup = function() {
     // we add an event listener (querySelector; returns first element matching criteria, here ID of "email") on the email field for the users key going up
