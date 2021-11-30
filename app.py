@@ -52,10 +52,15 @@ def catalogue():
         email = request.form.get("email")
         
         db.execute('INSERT INTO bookings (itemName, fullName, startDate, endDate, email) VALUES (:itemName, :fullName, :startDate, :endDate, :email)', itemName=itemName, fullName=fullName, startDate=startDate, endDate=endDate, email=email )
+
         bookingid = db.execute('SELECT id FROM bookings WHERE itemName=? AND fullName=? AND startDate=? AND endDate=? AND email=?', itemName, fullName, startDate, endDate, email)
+        bookingList = db.execute('SELECT * FROM bookings')
+        for booking in bookingList:
+            if booking["id"] == bookingid:
+                bookingid = booking["id"]
         # we append our mock-up database
         # bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
-        return redirect("/catalogue")
+        return render_template("confirmation.html", bookingid = bookingid)  
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():
@@ -67,15 +72,15 @@ def bookings():
         #if the user requests to POST data (send data to resource) we take info from our HTML form and save it as variables
         bookingid = request.form.get("bookingid")
         # we remove from our mock database by going through every entry in the bookingList
-        db.execute('DELETE FROM bookings WHERE id=?', bookingid)
-           
-        return redirect("/bookings")
+        for booking in bookingList:
+            if booking["id"] == int(bookingid):
+                db.execute('DELETE FROM bookings WHERE id=?', bookingid)
+                return redirect("/bookings")
+            
+        return redirect("/failure")
+        # return redirect("/failure") - we return failure here because we want it to happen if no row in booking list has the entered booking ID. 
 
 
 @app.route("/failure")
 def failure():
     return render_template("failure.html")
-
-@app.route("/confirmation")
-def confirmation():
-    return render_template("confirmation.html")    

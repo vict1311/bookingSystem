@@ -22,9 +22,9 @@
             <div class="card-body scroll">
               {% 
                 for booking in bookingList
-                    if booking.itemName == "Drill"
+                    if booking["itemName"] == "Drill"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking.fullName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
             {% endfor %}
             </div>
           </div>
@@ -41,9 +41,9 @@
             <div class="card-body scroll">
               {% 
                 for booking in bookingList
-                    if booking.itemName == "Ladder"
+                    if booking["itemName"] == "Ladder"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking.fullName }} from {{ booking.startDate }} to {{ booking.endDate }}.</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
             {% endfor %}
             </div>
           </div>
@@ -60,9 +60,9 @@
             <div class="card-body scroll">
               {% 
                 for booking in bookingList
-                    if booking.itemName == "Chairs"
+                    if booking["itemName"] == "Chairs"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}. id: {{ bookingid }}</p>
+                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
             {% endfor %}
             </div>
           </div>
