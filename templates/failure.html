@@ -1,9 +1,14 @@
 {% extends "layout_general.html" %}
 
 {% block body %}
+<br>
     <h1>Failure</h1>
 
     <div class="alert alert-danger">
         <p>The Booking ID you have entered could not be found.</p>
     </div>
+
+    <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+        Try Again?
+        </button>
 {% endblock %}
