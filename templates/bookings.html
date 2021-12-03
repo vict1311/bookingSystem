@@ -1,6 +1,7 @@
 {% extends "layout_bookings.html" %}
 
 {% block body %}
+<br>
     <h1>Bookings</h1>
     <br>
     <div class="container" style="width: 900px;">
@@ -12,11 +13,11 @@
 
     <br>
     <br>
-    <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+    <div class="card border-success mb-3" style="height: 40%; width: 69%; margin: auto;">
       <h5 class="card-header bg-success mb-3 text-white">Drill</h5>
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="img-fluid rounded-start" alt="drill">
+            <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="card-img-top" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body scroll">
@@ -24,18 +25,18 @@
                 for booking in bookingList
                     if booking["itemName"] == "Drill"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
+                <p class="card-text" style="text-align: left;"> {{ booking["startDate"] }} to {{ booking["endDate"] }}: Booked by {{ booking["fullName"] }}</p>
             {% endfor %}
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+      <div class="card border-success mb-3" style="height: 40%; width: 69%; margin: auto;">
         <h5 class="card-header bg-success mb-3 text-white">Ladder</h5>
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://homedepot.scene7.com/is/image/homedepotcanada/p_1000165414.jpg?wid=1000&hei=1000&op_sharpen=1" class="img-fluid rounded-start" alt="drill">
+            <img src="https://homedepot.scene7.com/is/image/homedepotcanada/p_1000165414.jpg?wid=1000&hei=1000&op_sharpen=1" class="card-img-top" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body scroll">
@@ -43,18 +44,18 @@
                 for booking in bookingList
                     if booking["itemName"] == "Ladder"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
+                <p class="card-text" style="text-align: left;"> {{ booking["startDate"] }} to {{ booking["endDate"] }}: Booked by {{ booking["fullName"] }}</p>
             {% endfor %}
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card border-success mb-3" style="height: 350px; width: 1000px; margin: auto;">
+      <div class="card border-success mb-3" style="height: 40%; width: 69%; margin: auto;">
         <h5 class="card-header bg-success mb-3 text-white">Chairs</h5>
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://medieserver.jemogfix.dk/fotoweb/dk/varer/700/2125%209036098.jpg" class="img-fluid rounded-start" alt="drill">
+            <img src="https://medieserver.jemogfix.dk/fotoweb/dk/varer/700/2125%209036098.jpg" class="card-img-top" alt="drill">
           </div>
           <div class="col-md-8">
             <div class="card-body scroll">
@@ -62,7 +63,7 @@
                 for booking in bookingList
                     if booking["itemName"] == "Chairs"
             %} 
-                <p class="card-text" style="text-align: left;"> Booked by {{ booking["fullName"] }} from {{ booking["startDate"] }} to {{ booking["endDate"] }}.</p>
+                <p class="card-text" style="text-align: left;"> {{ booking["startDate"] }} to {{ booking["endDate"] }}: Booked by {{ booking["fullName"] }}</p>
             {% endfor %}
             </div>
           </div>
@@ -74,7 +75,7 @@
         <div class="modal-content" style = "position: fixed; width: 300px; top: 25%; margin-left: 40%; text-align: left; padding-left: 50px;">
         <!-- our form action (where to send form data) is for this file, and we use the post method to ask the server to book an item -->
         <form action="/bookings" method="post" id="deleteBooking">
-            <h3 id="nameOfItem">DELETE BOOKING:</h3>
+            <h3 id="nameOfItem">DELETE BOOKING</h3>
 
             <label for="bookingid">Booking ID:</label><br>
             <input type="text" id="bookingid" name="bookingid" placeholder="Booking ID" >

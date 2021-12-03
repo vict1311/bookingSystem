@@ -8,13 +8,13 @@ app = Flask(__name__)
 db = SQL('sqlite:///database/bookings.db')
 
 # create Booking class that we can load instances of
-class Booking:
-    def __init__(self, itemName, fullName, startDate, endDate, email):
-        self.itemName = itemName
-        self.fullName = fullName
-        self.startDate = startDate
-        self.endDate = endDate
-        self.email = email
+#class Booking:
+#    def __init__(self, itemName, fullName, startDate, endDate, email):
+#        self.itemName = itemName
+#        self.fullName = fullName
+#        self.startDate = startDate
+#        self.endDate = endDate
+#        self.email = email
 
 
 # hardcode bookings using our Booking class
@@ -55,16 +55,17 @@ def catalogue():
 
         bookingid = db.execute('SELECT id FROM bookings WHERE itemName=? AND fullName=? AND startDate=? AND endDate=? AND email=?', itemName, fullName, startDate, endDate, email)
         bookingList = db.execute('SELECT * FROM bookings')
-        for booking in bookingList:
-            if booking["id"] == bookingid:
-                bookingid = booking["id"]
+        #???? we loop over our bookinglist to find the value of the booking's id without column name
+        #for booking in bookingList:
+        #    if booking["id"] == bookingid:
+        #        bookingid = booking["id"]
         # we append our mock-up database
         # bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
-        return render_template("confirmation.html", bookingid = bookingid)  
+        return render_template("confirmation.html", bookingid = bookingid)  #redirecting to confirmation lets us refer to our newly created booking id
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():
-    bookingList = db.execute('SELECT * FROM bookings')
+    bookingList = db.execute('SELECT * FROM bookings ORDER BY startDate')
     if request.method == "GET": 
         return render_template("bookings.html", bookingList = bookingList)
         #if the user requests to GET data (get data from resource) we show them our page
