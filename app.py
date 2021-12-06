@@ -55,10 +55,12 @@ def catalogue():
 
         bookingid = db.execute('SELECT id FROM bookings WHERE itemName=? AND fullName=? AND startDate=? AND endDate=? AND email=?', itemName, fullName, startDate, endDate, email)
         bookingList = db.execute('SELECT * FROM bookings')
+        # We create a ordered bookinglist to show to different ways of showcasing the ID - bL: more scalable bLO: better visual representation
+        bookingListOrdered = db.execute('SELECT * FROM bookings ORDER BY id DESC LIMIT 1')
     
         # we append our mock-up database
         # bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
-        return render_template("confirmation.html", bookingid = bookingid, bookingList = bookingList)  
+        return render_template("confirmation.html", bookingid = bookingid, bookingList = bookingList, bookingListOrdered = bookingListOrdered)  
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():
