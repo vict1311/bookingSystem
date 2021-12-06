@@ -5,16 +5,16 @@
 <br>
 <h1>Item Catalogue</h1>
     <br>
-    <div class="container" style="width: 900px;">
+    <div class="container" style="width: 75%;">
     <h6>Here, you can see the items avaliable for booking in your dormitory. To book an item, click "Book Now" and enter your full Name, start date for booking, end date for booking, and your email address. To finalise the booking, press "Submit". Get an overview of existing bookings by clicking "Bookings" in the navbar.</h6>
     </div>
     <br>
 <div class="row" style="margin: auto;">
 
-<div class="row">
-  <div class="col-sm-4 d-flex align-items-stretch">
+<div class="row center">
+  <div class="col-sm-4 d-flex ">
     <div class="card border-success mb-3">
-        <img src="https://www.costco.co.uk/medias/sys_master/images/h4d/h16/47511575003166.jpg" class="card-img-top" alt="drill">
+        <img src="https://live.staticflickr.com/65535/51729074204_5bb6b94ae9_z.jpg" class="card-img-top" alt="drill">
         <h5 class="card-header bg-success mb-3 text-white">Drill</h5>
         <div class="card-body text-success">
           <p class="card-text">2 x 1,5 Ah 18V XR Li-Ion drill.</p>
@@ -22,9 +22,9 @@
         </div>
     </div> 
   </div>
-  <div class="col-sm-4 d-flex align-items-stretch">
+  <div class="col-sm-4 d-flex ">
     <div class="card border-success mb-3">
-        <img src="https://homedepot.scene7.com/is/image/homedepotcanada/p_1000165414.jpg?wid=1000&hei=1000&op_sharpen=1" class="card-img-top" alt="ladder">
+        <img src="https://live.staticflickr.com/65535/51729074174_eb7e85f1bd_z.jpg" class="card-img-top" alt="ladder">
         <h5 class="card-header bg-success mb-3 text-white">Ladder</h5>
         <div class="card-body text-success">
           <p class="card-text">Fiberglass Double Step Ladder. Supports 300lbs.</p>
@@ -32,9 +32,9 @@
         </div>
     </div> 
   </div>
-  <div class="col-sm-4 d-flex align-items-stretch">
+  <div class="col-sm-4 d-flex ">
     <div class="card border-success mb-3">
-        <img src="https://medieserver.jemogfix.dk/fotoweb/dk/varer/700/2125%209036098.jpg" class="card-img-top" alt="chair">
+        <img src="https://live.staticflickr.com/65535/51729074249_c70351b2bf_z.jpg" class="card-img-top" alt="chair">
         <h5 class="card-header bg-success mb-3 text-white">Folding Chair</h5>
         <div class="card-body text-success">
           <p class="card-text">12 folding chairs avaliable for booking.</p>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="modal-sm" id="myForm" style="display: none;">
-  <div class="modal-content" style = "position: fixed; width: 300px; top: 32.5%; margin-left: 40%; text-align: left; padding-left: 50px; ">
+  <div class="modal-content" style = "position: fixed; width: 300px; top: 25%; margin-left: 40%; text-align: left; padding-left: 50px; ">
   <!-- our form action (where to send form data) is for this file, and we use the post method to ask the server to book an item -->
   <form action="/catalogue" method="post" id="createBooking">
       <h3 id="nameOfItem"></h3>
@@ -56,9 +56,9 @@
       <input type="hidden" id="bookingid" name="bookingid" value="default">
       <label for="fullName">Full name:</label><br>
       <input type="text" id="fullName" name="fullName" placeholder="Full name"><br>
-      <label for="startDate">Start date:</label><br>
+      <label for="startDate">Start of booking:</label><br>
       <input type="date" id="startDate" name="startDate" placeholder="YYYY-MM-DD"><br><br>
-      <label for="endDate">End date:</label><br>
+      <label for="endDate">End of booking:</label><br>
       <input type="date" id="endDate" name="endDate" placeholder="YYYY-MM-DD"><br><br>
       <!-- we use the type "date" to let users pick a date -->
       <label for="email">Email:</label><br>
