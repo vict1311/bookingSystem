@@ -64,7 +64,7 @@ def catalogue():
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():
-    bookingList = db.execute('SELECT * FROM bookings')
+    bookingList = db.execute('SELECT * FROM bookings ORDER BY startDate')
     if request.method == "GET": 
         return render_template("bookings.html", bookingList = bookingList)
         #if the user requests to GET data (get data from resource) we show them our page
