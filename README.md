@@ -1,7 +1,29 @@
 # bookingSystem
-P7-project containing a booking system built with Flask, HTML, CSS and JavaScript.
+## P7-project containing a booking system built with Python, SQL, HTML, CSS and JavaScript.
 
-To get a virtualenv running in your terminal that uses the same settings as this system type "pip install -r requirements.txt".
+Download this repository.
+Set up a virtual environment
+```shell 
+pip install virtualenv
+```
+```shell 
+python -m venv venv 
+```
+Activate virtual environment 
+```shell
+venv/Scripts/activate.bat
+```
+Install "requirements.txt" and CS50 in this virtual environment
+```shell
+pip install -r requirements.txt
+```
+```shell
+pip install cs50
+```
+Run Flask server locally
+```shell
+python -m flask run
+```
 
 The CSS library we use is from Bootstrap, and the components we utilise are found at https://getbootstrap.com/docs/5.1/components.
 
