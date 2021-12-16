@@ -50,7 +50,7 @@
   <form action="/catalogue" method="post" id="createBooking">
       <h3 id="nameOfItem"></h3>
       <p class="card-text" style="transform: rotate(0);">
-        Check if the item is available on the <a href="http://127.0.0.1:5000/bookings" class="text-success stretched-link">booking page</a>.
+        Check if the item is available on the <a href="{{ url_for('bookings') }}" class="text-success stretched-link">booking page</a>.
       </p>
       <input type="hidden" id="itemName" name="itemName" value="">
       <input type="hidden" id="bookingid" name="bookingid" value="default">
