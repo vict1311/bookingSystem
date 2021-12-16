@@ -8,13 +8,13 @@ app = Flask(__name__)
 db = SQL('sqlite:///database/bookings.db')
 
 # create Booking class that we can load instances of
-#class Booking:
-#    def __init__(self, itemName, fullName, startDate, endDate, email):
-#        self.itemName = itemName
-#        self.fullName = fullName
-#        self.startDate = startDate
-#        self.endDate = endDate
-#        self.email = email
+class Booking:
+    def __init__(self, itemName, fullName, startDate, endDate, email):
+        self.itemName = itemName
+        self.fullName = fullName
+        self.startDate = startDate
+        self.endDate = endDate
+        self.email = email
 
 
 # hardcode bookings using our Booking class
@@ -55,13 +55,12 @@ def catalogue():
 
         bookingid = db.execute('SELECT id FROM bookings WHERE itemName=? AND fullName=? AND startDate=? AND endDate=? AND email=?', itemName, fullName, startDate, endDate, email)
         bookingList = db.execute('SELECT * FROM bookings')
-        #???? we loop over our bookinglist to find the value of the booking's id without column name
-        #for booking in bookingList:
-        #    if booking["id"] == bookingid:
-        #        bookingid = booking["id"]
+        # We create a ordered bookinglist to show to different ways of showcasing the ID - bL: more scalable bLO: better visual representation
+        bookingListOrdered = db.execute('SELECT * FROM bookings ORDER BY id DESC LIMIT 1')
+    
         # we append our mock-up database
         # bookingList.append(Booking(itemName, fullName, startDate, endDate, email))
-        return render_template("confirmation.html", bookingid = bookingid)  #redirecting to confirmation lets us refer to our newly created booking id
+        return render_template("confirmation.html", bookingid = bookingid, bookingList = bookingList, bookingListOrdered = bookingListOrdered)  
 
 @app.route("/bookings", methods=["GET", "POST"])
 def bookings():

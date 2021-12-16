@@ -5,8 +5,13 @@
     <h1>Confirmation</h1>
 
     <div class="alert alert-success">
-        <p>Your booking is successful! Your Booking ID is {{ bookingid }}
-        </p>
+        <p>Your Booking ID is </p>
+
+        {% for booking in bookingListOrdered %}
+            <h2>{{ booking["id"] }}</h2>
+            
+                {% endfor %}
+        
     </div>
         <button type="button" class="btn btn-secondary" onclick=" location.href='{{ url_for('bookings') }}' ">
         See your booking
